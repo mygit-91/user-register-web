@@ -1,0 +1,324 @@
+/* 1. Global Reset & Base Fonts */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.parent {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  margin-bottom: 20px;
+}
+
+/* 2. register Card Styling */
+.register-container {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 600px;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.register-form h2 {
+  color: #1a1a1a;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.register-form .subtitle {
+  color: #666666;
+  font-size: 15px;
+  margin-bottom: 32px;
+}
+
+/* 3. Input Groups & Labels */
+label {
+  color: #333;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  color: #333333;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px 10px;
+  font-size: 15px;
+  border: 1px solid #dddddd;
+  border-radius: 7px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.input-group input:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+/* 4. Utilities & Links */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+/* 5. Primary Action Button */
+.submit-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #4f46e5;
+  color: #ffffff;
+  border: none;
+  border-radius: 7px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 50px;
+}
+
+.submit-btn:hover {
+  background-color: #4338ca;
+}
+
+.cancle-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #8b8b8e;
+  color: #ffffff;
+  border: none;
+  border-radius: 7px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 50px;
+}
+
+.cancle-btn:hover {
+  background-color: #757577;
+}
+
+/* 6. File upload */
+/* Hide the ugly native file input entirely */
+input[type='file'] {
+  display: none;
+}
+
+/* Turn the label into a beautiful custom button */
+.custom-file-upload {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.custom-file-upload:hover {
+  background-color: #0056b3;
+}
+
+#file-name {
+  font-family: sans-serif;
+  margin-left: 10px;
+  color: #666;
+}
+
+/* 7. Date Seclection */
+/* Container styling */
+.date-input-container {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', sans-serif;
+  gap: 8px;
+  width: 100%;
+}
+
+/* Base input element styling */
+input[type='date'] {
+  width: 100%;
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 7px;
+  color: #333;
+  font-size: 15px;
+  outline: none;
+  padding: 9px 10px !important;
+}
+
+/* Highlight input on focus */
+input[type='date']:focus {
+  border-color: #0066cc;
+  box-shadow: 0 0 0 3px rgba(0, 102, 206, 0.15);
+}
+
+/* Customizing Chromium/WebKit specific inner elements */
+input[type='date']::-webkit-calendar-picker-indicator {
+  background-color: transparent;
+  cursor: pointer;
+  filter: invert(30%); /* Subtle tweak to change the default icon color */
+  /* padding: 5px; */
+}
+
+/* Optional: Removes default clear buttons inside some browsers */
+input[type='date']::-webkit-clear-button {
+  display: none;
+}
+
+/* 8. Drop Down List Seclection */
+/* Container styling */
+.custom-select-container {
+  font-family: Arial, sans-serif;
+}
+
+/* Label styling */
+.custom-select-container label {
+  display: block;
+  margin-bottom: 8px;
+  /* font-weight: bold; */
+}
+
+/* Select element styling */
+.styled-select {
+  width: 100%;
+  padding: 9px 10px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  background-color: #fff;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+/* Hover and focus states */
+.styled-select:hover {
+  border-color: #888;
+}
+
+.styled-select:focus {
+  border-color: #007bff;
+}
+
+/* Container holds both columns horizontally */
+.row-container {
+  display: flex;
+  width: 100%;
+  gap: 50px; /* Spacing between columns */
+}
+
+/* Each column takes exactly half of the row space */
+.column-item {
+  flex: 1; /* Distributes space equally */
+}
+
+/* Stack columns vertically on smaller mobile screens */
+@media (max-width: 768px) {
+  .row-container {
+    flex-direction: column;
+  }
+}
+
+.radio-group {
+  display: flex; /* Aligns children horizontally */
+  flex-direction: row; /* Keeps them in a line */
+  gap: 50px; /* Adds clean spacing between the buttons */
+  margin-top: 8px;
+}
+
+.radio-item {
+  display: flex; /* Vertically aligns individual button with its text */
+  align-items: center;
+  cursor: pointer; /* Changes cursor to pointer on hover */
+}
+
+/* Changes the native radio inner fill color */
+.radio-input {
+  accent-color: #0076ff;
+  width: 1.2rem;
+  height: 1.2rem;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.button-container {
+  display: flex; /* Positions children horizontally */
+  gap: 15px; /* Controls spacing between buttons */
+  justify-content: center; /* Optional: Centers buttons on the line */
+}
+
+.upload-container {
+  max-width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* Hide the browser default input entirely */
+.file-input {
+  display: none;
+}
+
+/* Container for our custom visible elements */
+.file-upload {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  padding: 1px 1px;
+  border-radius: 7px;
+  background-color: #f9f9f9;
+}
+
+.file-name {
+  color: #555;
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 10px 10px;
+}
+
+/* Stylish custom upload button */
+.upload-btn {
+  background-color: #8b8b8e;
+  color: white;
+  border: none;
+  padding: 9px 10px;
+  font-size: 14px;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.upload-btn:hover {
+  background-color: #757577;
+}

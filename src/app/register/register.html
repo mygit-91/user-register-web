@@ -1,0 +1,171 @@
+<div class="parent">
+  <div class="register-container">
+    <form class="register-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="container">
+        <h2>User Registration Form</h2>
+      </div>
+
+      <div class="row-container">
+        <div class="column-item">
+          <div class="input-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" formControlName="firstName" />
+            <!-- Check required field -->
+            @if (registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched) {
+              <p style="color: red">Please enter first name.</p>
+            }
+          </div>
+        </div>
+        <div class="column-item">
+          <div class="input-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" formControlName="lastName" />
+            <!-- Check required field -->
+            @if (registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched) {
+              <p style="color: red">Please enter last name.</p>
+            }
+          </div>
+        </div>
+      </div>
+      <div class="row-container">
+        <div class="column-item">
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="you@example.com" formControlName="email" />
+            <!-- Check required field -->
+            @if (registerForm.get('email')?.invalid && registerForm.get('email')?.touched) {
+              <p style="color: red">Please enter correct email.</p>
+            }
+          </div>
+        </div>
+        <div class="column-item">
+          <div class="input-group">
+            <label for="phone">Phone Number</label>
+            <input
+              type="tel"
+              id="phone"
+              placeholder="023334444 or 0852223333"
+              formControlName="phone"
+            />
+            <!-- Check required field -->
+            @if (registerForm.get('phone')?.invalid && registerForm.get('phone')?.touched) {
+              <p style="color: red">Please enter correct number.</p>
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="row-container">
+        <div class="column-item">
+          <div class="input-group">
+            <label>Profile</label>
+            <div class="upload-container">
+              <!-- Hidden native file input -->
+              <input
+                type="file"
+                id="profile"
+                class="file-input"
+                accept=".jpg, .jpeg, .png, .gif"
+                (change)="onProfileSelected($event)"
+                #fileUpload
+                formControlName="profile"
+              />
+
+              <!-- Custom styled visible UI -->
+              <div class="file-upload">
+                <span class="file-name">
+                  {{ fileName || 'Select file' }}
+                </span>
+
+                <button type="button" class="upload-btn" (click)="fileUpload.click()">
+                  Browse
+                </button>
+              </div>
+              <!-- Check required field -->
+              @if (registerForm.get('profile')?.invalid && registerForm.get('profile')?.touched) {
+                <p style="color: red">Please select file.</p>
+              }
+            </div>
+          </div>
+        </div>
+        <div class="column-item">
+          <div class="input-group">
+            <label for="birthDay">Birth Day</label>
+            <input
+              type="date"
+              id="birthDay"
+              min="1900-01-01"
+              [max]="maxToday"
+              formControlName="birthDay"
+            />
+            <!-- Check required field -->
+            @if (registerForm.get('birthDay')?.invalid && registerForm.get('birthDay')?.touched) {
+              <p style="color: red">Please select birth day.</p>
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="row-container">
+        <div class="column-item">
+          <div class="input-group">
+            <div class="custom-select-container">
+              <label for="occupation">Occupations</label>
+              <select class="styled-select" id="occupation" formControlName="occupation">
+                <option value="" disabled selected>Select occupation</option>
+                @for (item of occupations; track item.id) {
+                  <option [value]="item.name">{{ item.name }}</option>
+                }
+              </select>
+              <!-- Check required field -->
+              @if (
+                registerForm.get('occupation')?.invalid && registerForm.get('occupation')?.touched
+              ) {
+                <p style="color: red">Please select Occupation.</p>
+              }
+            </div>
+          </div>
+        </div>
+        <div class="column-item">
+          <div class="input-group"></div>
+        </div>
+      </div>
+
+      <div class="row-container">
+        <div class="column-item">
+          <label>Sex</label>
+          <div class="radio-group">
+            <label class="radio-item">
+              <input
+                class="radio-input"
+                type="radio"
+                name="sex"
+                value="Male"
+                formControlName="sex"
+              />
+              Male
+            </label>
+            <label class="radio-item">
+              <input
+                class="radio-input"
+                type="radio"
+                name="sex"
+                value="Female"
+                formControlName="sex"
+              />
+              Female
+            </label>
+          </div>
+          <!-- Check required field -->
+          @if (registerForm.get('sex')?.invalid && registerForm.get('sex')?.touched) {
+            <p style="color: red">Please select sex.</p>
+          }
+        </div>
+      </div>
+      <div class="button-container">
+        <button type="submit" class="submit-btn">Save</button>
+        <button type="button" class="cancle-btn" (click)="onClear()">Clear</button>
+      </div>
+    </form>
+  </div>
+</div>
